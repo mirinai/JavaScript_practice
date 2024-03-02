@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 개요</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <!--
+    자바스크립트 : HTML을 조작하기 위해 만들어진 프로그래밍 언어
+  -->
+  <h1 id="hello">hello</h1>
+  <p id="niceToMeet">반갑다</p>
+  <script>
+    // document : HTML문서
+    // . : ~의
+    // getElmentById : 아이디를 찾아라 (셀렉터)
+    // innerHTML :HTML내용
+    // = : 오른쪽 값을 왼쪽에 넣기
+    document.getElementById('hello').innerHTML="hi"
+    document.getElementById('hello').style.color="red"
+
+    //hi의 내용을 nice to meet you로
+    document.getElementById('niceToMeet').innerHTML="nice to meet you"
+    //hello의 폰트사이즈 바꾸기 100px
+    document.getElementById('hello').style.fontSize="100px"
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <script>
+    // 변수 : 값을 저장하는 공간
+    // 함수 : 코드를 저장하는 공간
+    function func1()
+    {
+      console.log("hello world!")
+    }
+    //함수로 코드를 저장하는데 그때그때 바꿔주고 싶은 부분이 있다.
+    //소괄호 쓰기 ==>소괄호에 매개변수(parameter)를 만든다.
+    function func2(param){
+      console.log("hello "+param+"!")
+    }
+    function sum_print(num1, num2){
+      let 덧셈결과 = num1+num2 //let : {} 안에서는 let쓰기
+      console.log("더한 결과 : "+덧셈결과)
+    }
+    //함수가 끝날 때 무언가 알려주고 싶다 ==>return
+    function func_minus(num1, num2){
+      let 뺄셈결과 = num1-num2
+      console.log("뺄셈 결과 : "+뺄셈결과)
+      return "뺄셈이 정상적으로 끝남"
+    }
+    //var 전역변수 //중괄호 {} 밖에서는 var, let으로 써도 됨
+    
+    func1()
+    func1()
+    func1()
+    /*
+    hello world!
+    hello world!
+    hello world!
+    */
+   func2("JS")
+   func2("JAVA")
+   func2("C")
+   /*
+    hello JS!
+    hello JAVA!
+    hello C!*/
+    sum_print(3,3)//더한 결과 : 6
+    sum_print(8,4)//더한 결과 : 12
+
+    var result = func_minus(4,1)//뺄셈 결과 : 3
+    console.log("함수의 실행결과는 : "+result)//함수의 실행결과는 : 뺄셈이 정상적으로 끝남
+    
+
+  </script>
+</body>
+</html>

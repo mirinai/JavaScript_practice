@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var 문자열 =""
+    var 문자열2=''
+
+    //이미 만든 '문자열' 공간에 값을 덮어씌우기
+    문자열="문자열 "
+    문자열2 = "이어붙이기" //var이 없으면 기존에 있는 공간에 덮어씌우기
+    
+    //문자열의 더하기는 이어붙이기
+    var 합친문자열 = 문자열 + 문자열2
+    console.log(합친문자열) //문자열 이어붙이기
+    
+    var name="armin"
+    var introduce = "I'm"+" "+name+"."//오른쪽에 쓴 이름은 값으로 바뀜
+    console.log(introduce)//I'm armin.
+    
+    //문자열의 글자수 (변수 안에 문자열이 몇글자인지 알고 싶은때)
+    var 글자수 = introduce.length
+    console.log("글자수 : "+글자수)//글자수 : 10
+    console.log("첫 글자 : "+introduce[0])//첫 글자 : I
+    
+
+  </script>
+</body>
+</html>

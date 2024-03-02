@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array</title>
+</head>
+<body>
+  <script>
+    //하나의 변수로 여러개의 값을 보관하는 것 : 배열
+    var 배열 = [1,2,3,"사","오",3.14,false]
+    var 순서 = ["0번째","1번째","2번째","3번째"]
+    console.log(순서[0])//0번째
+    console.log(순서[1])//1번째
+    console.log(순서[2])//2번째
+    console.log(순서[3])//3번째
+    // 4칸짜리 배열을 만들면 3번째 방까지 있다.
+    // 0번방,1번방,2번방,3번방
+    
+    //배열 안에 값을 여러개 넣어놓을 수 있다.
+    //배열 안에도 배열을 넣을 수 있다. : 중첩배열
+    var 중첩배열 =[[1,2,3],['1','2','3']]
+    
+    // 하나의 주제로 여러개의 값을 담고 싶을 때 배열을 씀(목록화)
+    var 회원목록=[["john",27],["cyncia",28],["natasha",26],["stephan",23]]
+    console.log(회원목록[0][0])//john
+    console.log(회원목록[0][1])//27
+
+    var cyncias_age=회원목록[1][1]
+    console.log(cyncias_age) //28
+    
+
+  </script>
+</body>
+</html>
