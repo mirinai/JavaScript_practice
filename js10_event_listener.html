@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수++</title>
+  <style>
+    .box-class{
+      background: yellowgreen;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-class" id="box-id">
+    <p id="box-text">버튼을 누르면 창이 열린다.</p>
+    <button onclick="box_closing()">closing button</button>
+  </div>
+  <button onclick="box_opening('아이디를 입력해라')">open button1</button>
+  <button onclick="box_opening('비밀번호를 입력해라')">open button2</button>
+  <!--
+
+  -->
+  <script>
+    //콜백함수 : 매개변수로 쓰이는 함수
+
+    function box_opening(parameter){
+     
+
+      
+      document.getElementById('box-id').style.display="block";
+      document.getElementById('box-text').innerHTML=parameter;
+    }
+    function box_closing(){
+      document.getElementById('box-id').style.display="none";
+
+    }
+    //box-id를 클릭하면 글자를 붉은 색으로 바꾸기
+    //box-id라는 아이디 누르기(HTML문서에서)
+    //그때 함수가 돌아가게 하기
+    document.getElementById('box-id').addEventListener('click', function(){
+      document.getElementById('box-id').style.color = 'white';
+      document.getElementById('box-text').style.fontSize = "30px";
+    })
+    //박스에 마우스를 올리면 배경을 더 짙게
+    //클릭하면 더 짙게
+    //나가면 원래색으로
+    document.getElementById('box-id').addEventListener('mouseover',function(){
+      document.getElementById('box-id').style.background="green";
+    })
+    
+    document.getElementById('box-id').addEventListener('mouseleave',function(){
+      document.getElementById('box-id').style.background="yellowgreen";
+    })
+    document.getElementById('box-id').addEventListener('mousedown',function(){
+      document.getElementById('box-id').style.background="darkgreen";
+      
+
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수와 함수</title>
+  <style>
+    .box-class{
+      background: yellowgreen;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-class" id="box-id">
+    <p id="box-text">버튼을 누르면 창이 열린다.</p>
+    <button onclick="box_closing()">closing button</button>
+  </div>
+  <button onclick="box_opening('아이디를 입력해라')">open button1</button>
+  <button onclick="box_opening('비밀번호를 입력해라')">open button2</button>
+  <!--
+    열기 : 아이디를 입력해라
+    열기2 : 비밀번호를 입력하세요
+  -->
+  <script>
+    // 변수 : var, let, const, 값을 저장하는 공간
+    // 함수 : function, 코드를 저장하는 공간, 그때 그때 바꾸고 싶은 부분이 있다.
+
+    function box_opening(parameter){
+      //box-class의 display의 style을 block으로 바꾸기
+      //HTML === document
+      // ~에서 === .
+      // getElementById() === 이런 아이디를 찾아라
+      // style === 스타일을
+      // innerHTML === 내용을
+
+      //box-text의 내용을 매개변수로 바꾸기
+      
+      document.getElementById('box-id').style.display="block"
+      document.getElementById('box-text').innerHTML=parameter 
+    }
+    function box_closing(){
+      document.getElementById('box-id').style.display="none"
+    }
+  </script>
+</body>
+</html>

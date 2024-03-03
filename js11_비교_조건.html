@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <script>
+    // 변수 : 값(데이터)를 저장하는 공간
+    var 공간이름 = '값'
+    // 공간을 처음 만들때는 var / let / const를 앞에 적어준다
+    // 이미 만들어진 공간은 이름만 적는다.
+    공간이름
+    
+    //변수의 타입
+    var 정수 = 3 //정수
+    var 실수 = 3.14//실수
+    var 문자열 = "데이터값" //스트링
+    var 불리언 = true //참, 거짓(true / false)
+
+    // 조건 : 어떤 코드가 실행되게 할지 고르기
+    // if(){}
+    if(true){
+      console.log("()안에 true가 들어가면 실행할 코드 넣기")
+    }
+    if(false){
+      console.log("이 부분은 무시됨")
+    }
+    // ()안에는 true 또는 false
+    // {}안에는 true일때만 실행할 코드 넣기
+    
+    console.log(10>3)//true
+    console.log(10<3)//false
+    console.log(30 >= 3)//true
+    console.log(30 <= 3)//false
+    console.log(30 == 30) //true, == : 자료형 검사를 못하는 버그 exam) 30 =="30" -> true
+    console.log(30 === "30")//false
+    console.log(30 !== '30')//true, 자료형이 다르기때문에 다름
+
+    //비교를 하면 결과가 true 또는 false
+    var result=0;
+    if (result === 0){
+      console.log("결과는 0과 같다.")//결과는 0과 같다.
+    }
+    if (result !== 0){
+      console.log("결과는 0과 같지 않다.")
+    }
+
+    function 큰값검사(num1,num2){
+      //return을 만나면 함수가 바로 끝남
+      if(num1>num2){
+        return "첫번째 숫자가 더 크다."
+      }
+      if(num1<num2){
+        return "첫번째 숫자가 더 크다."
+      }
+      if(num1 === num2){
+        return "두수는 같다."
+      }
+    }
+
+    function isAdult(age){
+      if (age>=19){
+      return "어른";
+    }
+    else{
+      return "어른아님";
+    }
+    }
+
+    function isSenaka(senaka){
+      if(senaka>=130 && senaka <=190){// and
+      return "탈 수 있음";
+    }
+    else{
+      return "못 탐";
+    }
+    }
+    result=큰값검사(11,4)
+    console.log(result)//첫번째 숫자가 더 크다.
+    result=5;
+    if(result>5){
+      console.log("5보다 크다.")
+    }
+    else{
+      console.log("5보다 크지 않다.")//"5보다 크지 않다."
+    }
+    //반대이면 ==> else
+    /*if(result<=5){
+      console.log("5보다 크지 않다.")//5보다 크지 않다.
+
+    }*/
+    //어른인지 알아내는 함수
+    var age=20
+    result=isAdult(age)
+    console.log(result)
+    //if안에 if : 바깥의 if가 true일때 안에 있는 if를 검사
+
+    if (true){
+      console.log("if 1번째")
+      if(true){
+        console.log("if 2번째")
+      }
+    }
+
+    // 버스요금
+    //5살보다 작으면 공짜
+    //5살부터 14살보다 작으면 500원
+    //14살이상에서 20살보다 작으면 750원
+    //75살보다 크거나 같으면 공짜
+    age=18;
+    var kaps;
+    if (age<5 || age>=75){// or
+      kaps=0;
+    }
+    else if(age>=5 && age<14){
+      kaps=500;
+    }
+    else if (age>=14 && age<20){
+      kaps=750;
+    }
+    else{
+      kaps=1000;
+    }
+    //if : 조건 검사
+    //else if : 위의 조건이 틀렸을 때
+    //else : 그 밖의 모든 것
+    console.log(kaps)
+    //놀이기구 탑승검사
+    var senaka=194;
+    result = isSenaka(senaka)
+    console.log(result)
+
+    var str1="hello, nice to meet you";
+    //var numStr1=str1.length;// 길이
+    function isNum1(string){
+      let strL = string.length; // let : 중괄호나 ()안에서 변수를 만들때
+      if (strL>=3 && strL<10){
+        return "알맞는 글자수";
+      }
+      else{
+        return "length of string : error";
+      }
+    }
+    result=isNum1(str1)
+    console.log(result)//length of string : error
+
+    function isNum2(num){
+      //숫자가 3또는 10인지 검사
+      // || : or
+      if (num === 3 || num === 10){
+        return "true"
+      }
+      else{
+        return "false"
+      }
+    }
+    console.log(isNum2(3))//true
+    </script>
+</body>
+</html>

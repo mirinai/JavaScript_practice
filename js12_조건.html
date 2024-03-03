@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문++</title>
+  <style>
+    /*
+    배경 : lightgrey
+    로고 : 왼쪽
+    리스트 :오른쪽에 한 줄로
+    padding
+    */
+    body{
+      margin:0;
+    }
+    .top-nav{
+      width: 100%;
+      background-color: #dee687;
+      display: flex;
+      /*padding-right:20px;
+      padding-left: 20px;*/
+      padding:0 30px; /*위아래:0, 왼쪽, 오른쪽 : 30*/
+
+      justify-content: space-between;
+      border: 1px solid black;
+
+    }
+    #top-logo{
+      margin-left: 30px;
+    }
+    .top-nav ul{
+      margin-top: 40px;
+      margin-right: 30px;
+    }
+    .top-nav li{
+      padding: 15px;
+      display: inline-block;
+
+      font-size: 18px;
+      color: rgb(31, 34, 12);
+    }
+    .bottom-nav{
+
+      background-color: #ad886f;
+      display: flex;
+      height: 0;
+      /*overflow: hidden;*/
+      visibility: hidden;
+      z-index: 5;
+    }
+    .bottom-nav h3{
+      margin-top: 0;
+    }
+    .bottom-nav div{
+      padding:10px 30px; /*위아래:10ㅔㅌ, 왼쪽오른쪽:30px*/
+    }
+    .bottom-nav ul{
+      padding-left:0;
+    }
+    .bottom-nav li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    네비게이션 : 로고
+  -->
+  <div class="top-nav">
+    <h2 id="top-logo">로고</h2>
+    <ul>
+      <li>커피</li>
+      <li>라떼</li>
+      <li>주스</li>
+      <li>티</li>
+    </ul>
+  </div>
+  <div class="bottom-nav" id="bottom-nav">
+    <div>
+      <h3>커피</h3>
+      <ul>
+        <li>아메리카노</li>
+        <li>콜드브루</li>
+      </ul>
+    </div>
+    <div>
+      <h3>라떼</h3>
+      <ul>
+        <li>카페라떼</li>
+        <li>콜드브루라떼</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    var bottom_nav_flag=0;//변수
+    document.getElementById('top-logo').addEventListener('click', function(){
+      if (bottom_nav_flag === 0){
+        bottom_nav_flag=1;
+        document.getElementById('bottom-nav').style.height="auto";
+        document.getElementById('bottom-nav').style.visibility="visible";
+      }
+      else if (bottom_nav_flag === 1){
+        bottom_nav_flag=0;
+        document.getElementById('bottom-nav').style.height='0';
+        document.getElementById('bottom-nav').style.visibility='hidden';
+      }
+    })
+  </script>
+</body>
+</html>
