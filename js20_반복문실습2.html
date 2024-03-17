@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이더</title>
+  <style>
+    body{
+      margin:0;
+    }
+    .slider-container{
+      overflow: hidden;
+      width: 30%;
+      height: 40%;
+    }
+    .slider-img{
+      display: flex;
+      /* width : 슬라이드 갯수 * 100%*/
+      width:500%;
+      transition: all 1s;
+    }
+    .box{
+      width: 100%;
+      height: inherit;
+    }
+    .box img{
+      width: 100%;
+    }
+    .slider-page-1{
+      margin-left: 0;
+    }
+    .slider-page-2{
+      margin-left: -100%;
+    }
+    .slider-page-3{
+      margin-left: -200%;
+    }
+    .slider-page-4{
+      margin-left: -300%;
+    }.slider-page-5{
+      margin-left: -400%;
+    }
+  </style>
+</head>
+<body>
+  <!--slider-container : 슬라이더의 크기를 결정-->
+  <div class="slider-container">
+    <div class="slider-img">
+      <div class="box">
+        <img src="img\반도체레이저.avif" alt="">
+      </div>
+      <div class="box">
+        <img src="img\별이 빛나는 하늘.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="img\스텔스기.avif" alt="">
+      </div>
+      <div class="box">
+        <img src="img\어스름_다리_요새.webp" alt="">
+      </div>
+      <div class="box">
+        <img src="img\terra of 새벽.webp" alt="">
+      </div>
+    </div>
+  </div>
+  <button id="slide-btn-1">1</button>
+  <button id="slide-btn-2">2</button>
+  <button id="slide-btn-3">3</button>
+  <button id="slide-btn-4">4</button>
+  <button id="slide-btn-5">5</button>
+
+  <script>
+    document.getElementById("slide-btn-1").addEventListener("click",function(){
+      /*document.querySelector(".slider-img").classList.remove("slider-second")
+      document.querySelector(".slider-img").classList.remove("slider-third")
+      document.querySelector(".slider-img").classList.remove("slider-fourth")
+      document.querySelector(".slider-img").classList.remove("slider-fifth")
+      document.querySelector(".slider-img").classList.add("slider-first")*/
+
+      document.querySelector(".slider-img").classList.remove("slider-page-2","slider-page-3","slider-page-4","slider-page-5")
+      document.querySelector(".slider-img").classList.add("slider-page-1")
+
+    })
+    document.getElementById("slide-btn-2").addEventListener("click",function(){
+      //slider-img에 slider-~ 클래스 넣기
+      /*document.querySelector(".slider-img").classList.remove("slider-first")
+      document.querySelector(".slider-img").classList.remove("slider-third")
+      document.querySelector(".slider-img").classList.remove("slider-fourth")
+      document.querySelector(".slider-img").classList.remove("slider-fifth")
+      document.querySelector(".slider-img").classList.add("slider-second")*/
+      document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-3","slider-page-4","slider-page-5")
+      document.querySelector(".slider-img").classList.add("slider-page-2")
+    })
+    document.getElementById("slide-btn-3").addEventListener("click",function(){
+      //slider-img에 slider-~ 클래스 넣기
+      /*document.querySelector(".slider-img").classList.remove("slider-first")
+      document.querySelector(".slider-img").classList.remove("slider-second")
+      document.querySelector(".slider-img").classList.remove("slider-fourth")
+      document.querySelector(".slider-img").classList.remove("slider-fifth")
+      document.querySelector(".slider-img").classList.add("slider-third")*/
+      document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-4","slider-page-5")
+      document.querySelector(".slider-img").classList.add("slider-page-3")
+    })
+    document.getElementById("slide-btn-4").addEventListener("click", function(){
+      /*document.querySelector(".slider-img").classList.remove("slider-first");
+      document.querySelector(".slider-img").classList.remove("slider-second");
+      document.querySelector(".slider-img").classList.remove("slider-third");
+      document.querySelector(".slider-img").classList.remove("slider-fifth");
+      document.querySelector(".slider-img").classList.add("slider-fourth");*/
+      document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-3","slider-page-5")
+      document.querySelector(".slider-img").classList.add("slider-page-4")
+    })
+
+    document.getElementById("slide-btn-5").addEventListener("click", function(){
+      /*document.querySelector(".slider-img").classList.remove("slider-first");
+      document.querySelector(".slider-img").classList.remove("slider-second");
+      document.querySelector(".slider-img").classList.remove("slider-third");
+      document.querySelector(".slider-img").classList.remove("slider-fourth");
+      document.querySelector(".slider-img").classList.add("slider-fifth");*/
+      document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-3","slider-page-4")
+      document.querySelector(".slider-img").classList.add("slider-page-5")
+    })
+
+  </script>
+</body>
+</html>

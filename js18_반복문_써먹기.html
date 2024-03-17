@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭기능 만들기</title>
+  <style>
+   .tab_container{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+   }
+   .tab_container ul{
+    font-size: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+   }
+   .tab_container li{
+    display: inline-block;
+    padding: 10px 30px;
+
+    border-bottom: 1px solid lightgray;
+   }
+   .tab-selected{
+    border: 1px solid lightgray;
+    border-top: 2px solid orange;
+    border-bottom: 0 !important;
+   }
+   .display-none{
+    display: none;
+   }
+   .tab-btn{
+    
+   }
+
+   .tab_content{
+
+   }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="tab_container">
+    <ul>
+      <li class="tab-btn tab-selected">tab1</li>
+      <li class="tab-btn">tab2</li>
+      <li class="tab-btn">tab3</li>
+    </ul>
+    <div class="tab_content ">
+      <p>탭1의 내용</p>
+    </div>
+    <div class="tab_content display-none">
+      <p>탭2의 내용</p>
+    </div>
+    <div class="tab_content display-none">
+      <p>탭3의 내용</p>
+    </div>
+  </div>
+  
+  <script>
+    var tabs_buttons=document.querySelectorAll(".tab-btn").length
+    var tabs_contens=document.querySelectorAll(".tab_content").length
+
+      //모든 tab_content에다가 display-none 붙이고
+      //고른 tab_content에 display-none을 없앤다.
+      //모든 tab_btn의 tab-selected를 없애고
+      //고른 tab_btn에 tab-selected을 넣는다.
+    for (let order = 0;order<tabs_buttons;order++){
+      document.querySelectorAll(".tab-btn")[order].addEventListener("click",function(){
+        for (let idx=0;idx<tabs_contens;idx++){
+          document.querySelectorAll(".tab_content")[idx].classList.add("display-none")
+          document.querySelectorAll(".tab-btn")[idx].classList.remove("tab-selected")
+        }
+        document.querySelectorAll(".tab_content")[order].classList.remove("display-none")
+        document.querySelectorAll(".tab-btn")[order].classList.add("tab-selected")
+      })
+    }
+
+      /*for (let i=0;i<3;i++){
+        document.querySelectorAll(".tab_content")[i].classList.add("display-none")
+        document.querySelectorAll(".tab-btn")[i].classList.remove("tab-selected")
+      }
+      document.querySelectorAll(".tab_content")[0].classList.add("display-none")
+      document.querySelectorAll(".tab-btn")[0].classList.remove("tab-selected")
+    })
+    document.querySelectorAll(".tab-btn")[1].addEventListener("click",function(){
+      
+      for (let i=0;i<3;i++){
+        document.querySelectorAll(".tab_content")[i].classList.add("display-none")
+        document.querySelectorAll(".tab-btn")[i].classList.remove("tab-selected")
+      }
+      document.querySelectorAll(".tab_content")[1].classList.add("display-none")
+      document.querySelectorAll(".tab-btn")[1].classList.remove("tab-selected")
+    })
+    document.querySelectorAll(".tab-btn")[2].addEventListener("click",function(){
+      
+      for (let i=0;i<3;i++){
+        document.querySelectorAll(".tab_content")[i].classList.add("display-none")
+        document.querySelectorAll(".tab-btn")[i].classList.remove("tab-selected")
+      }
+      document.querySelectorAll(".tab_content")[2].classList.add("display-none")
+      document.querySelectorAll(".tab-btn")[2].classList.remove("tab-selected")
+    })*/
+  /*const tabBtns = document.querySelectorAll(".tab-btn");
+  const tabContents = document.querySelectorAll(".tab_content");
+
+  for (let i = 0; i < tabBtns.length; i++) {
+    tabBtns[i].addEventListener("click", function() {
+      // 모든 탭 콘텐츠를 숨김
+      for (let j = 0; j < tabContents.length; j++) {
+        tabContents[j].classList.add("display-none");
+      }
+      // 선택된 탭 콘텐츠만 표시
+      tabContents[i].classList.remove("display-none");
+      // 모든 탭 버튼의 'tab-selected' 클래스 제거
+      for (let j = 0; j < tabBtns.length; j++) {
+        tabBtns[j].classList.remove("tab-selected");
+      }
+      // 선택된 탭 버튼에 'tab-selected' 클래스 추가
+      tabBtns[i].classList.add("tab-selected");
+    });
+  }*/
+
+  </script>
+
+  
+</body>
+</html>
