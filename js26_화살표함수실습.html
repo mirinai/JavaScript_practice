@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤 이벤트</title>
+  <style>
+    body{
+      background-color: rgb(137, 119, 84);
+      margin: 0;
+    }
+    .container-nav{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 25px;/*위아래 : 0, 옆은 25*/
+      align-items: center;/*위아래 가운데*/
+      background-color: rgb(249, 147, 92);
+      /*z-index: 5;/*포지션 바꿀 필요*/
+      position: fixed;/*내 화면을 따라가라*/
+      width: 100%;
+      box-sizing: border-box;
+      height: 80px;
+
+    }
+  
+    .container-nav li{
+      display: inline-block;
+      
+    }
+    .container-nav a{
+      color: black;
+      text-decoration: none;
+    }
+    .container-content{
+      height: 800px;
+      border:2px solid yellowgreen;
+
+    }
+    .sticky-box{
+      width: 50px;
+      height: 50px;
+      background-color: bisque;
+      position: sticky;
+      top:100px;
+      left:70%;
+
+    }
+    .ads{
+      width: 50px;
+      height: 50px;
+      background-color: darkorange;
+      position: sticky;
+      top:100px;
+      left: 80px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <!--내 스크롤을 따라다니는 상단 네비게이션 바-->
+  <!--내 스크롤을 따라다니는 박스-->
+
+  <div class="container-nav">
+    <h3>로고</h3>
+    <ul>
+      <li><a href="#">홈</a></li>
+      <li><a href="#">introduction</a></li>
+    </ul>
+  </div>  
+  <div style="height:80px;"></div>
+  <div class="ads">광고</div>
+  <div class="container-content">
+    <div class="sticky-box">스티키1</div>
+  </div>
+  <div class="container-content">
+    <div class="sticky-box">스티키2</div>
+  </div>
+  <div class="container-content">
+    <div class="sticky-box">스티키3</div>
+  </div>
+  <script>
+    var 스크롤위치 = 0;
+    isChanged = false;
+    window.addEventListener('scroll', () => {
+    스크롤위치 = window.scrollY;
+    if (스크롤위치 > 200 && !isChanged) { // 200px 아래로 내려왔고 변경되지 않았을 때
+      document.querySelector('.container-nav h3').style.fontSize = '12px';
+      document.querySelector('.container-nav h3').style.background = "white";
+      isChanged = true; // 변경됨을 표시
+    } 
+    else if (스크롤위치 <= 200 && isChanged) { // 200px 이상이고 변경된 상태일 때
+      document.querySelector('.container-nav h3').style.fontSize = '19px'; // 기본 값으로 복원
+      document.querySelector('.container-nav h3').style.background = 'rgb(249, 147, 92)';
+      isChanged = false; // 변경이 해제됨을 표시
+    }
+  });
+  </script>
+</body>
+</html>

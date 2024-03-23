@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체1</title>
+</head>
+<body>
+  <script>
+    //웹통신(HTTP통신)에 주로 쓰이는 변수의 자료형 => 객체
+    // 변수의 자료형 : 정수, 실수, 문자열, 배열, 객체
+    var 객체;
+    객체=
+    {
+      "상품명" : "아메리카노",
+      "갯수" : 3,
+      "총금액" : 9000
+    }
+    console.log(객체['상품명'])//아메리카노
+    console.log(객체['갯수'])//3
+    console.log(객체['총금액'])//9000
+    var 팖리스트={
+      "총금액":18000,
+      "판매상세":[
+        {
+          "상품명":"아메리카노",
+          "갯수":3,
+          "총금액":9000
+        },
+        {
+          "상품명":"카페라떼",
+          "갯수":2,
+          "총금액":9000
+        }
+      ]
+    }
+    console.log(팖리스트['총금액'])
+    console.log(팖리스트['판매상세'])
+    /*
+0
+: 
+{상품명: '아메리카노', 갯수: 3, 총금액: 9000}
+1
+: 
+{상품명: '카페라떼', 갯수: 2, 총금액: 9000}
+length: 2
+[[Prototype]]: Array(0)*/
+    var 객체2 = {
+      '키워드1':"저장할 값1",
+      '키워드2':"저장할 값2",
+      "키워드3":[],
+      키워드4:{}
+    }
+    console.log(객체2.키워드2)//저장할 값2
+    console.log(객체2.키워드4)//{}
+    
+    console.log("-----------")
+    console.log(객체2['키워드2'])
+    console.log(객체2[`키워드${4}`])
+    console.log(객체2.키워드4)
+    
+
+
+  </script>
+</body>
+</html>

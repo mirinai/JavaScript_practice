@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화살표함수</title>
+</head>
+<body>
+  <button id="temp">button</button>
+  <script>
+    
+    // function 함수이름(){}
+
+    /*
+    //이름이 없는 함수 : 바로 씀
+    document.getEventListener(('click'),function(){
+
+    })
+    */
+   //var varibale = function(){}  //한번 쓰는 함수
+   var variable = ()=>{} //ArrowFunction
+   var variable2 = e => {}//parameter 1개면 () 없어도 됨
+   var variable3 = (a,b) => {}
+   var variable4 = (a,b) => a+b//return a+b
+   
+   //document.getEventListener('temp').addEventListener(('click'),() => {
+    //코드적기
+   //})
+   /*document.getElementById('temp').addEventListener(('click'),() => {
+    //코드적기
+    alert("temp");
+   })*/
+   /*document.getEventListener('temp').addEventListener(('click'),function(e){
+    //코드적기
+    console.log(e.target)
+   })*/
+   //document.getElementById('temp').addEventListener(("click"), e => console.log(e.target))//코드찾기
+   document.getElementById('temp').addEventListener(("click"), (e) => {
+    console.log(e.target)
+    e.target.style.background = "yeollogreen";//버튼 누르면 콘솔에 뜨게 하는 코드
+   })
+  </script>
+</body>
+</html>

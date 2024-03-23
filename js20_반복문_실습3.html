@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이더2</title>
+  <style>
+    body{
+      margin:0;
+    }
+    .slider-container{
+      overflow: hidden;
+      width: 30%;
+      height: 40%;
+    }
+    .slider-img{
+      display: flex;
+      /* width : 슬라이드 갯수 * 100%*/
+      width:500%;
+      transition: all 1s;
+    }
+    .box{
+      width: 100%;
+      height: inherit;
+    }
+    .box img{
+      width: 100%;
+    }
+    .slider-page-1{
+      margin-left: 0;
+    }
+    .slider-page-2{
+      margin-left: -100%;
+    }
+    .slider-page-3{
+      margin-left: -200%;
+    }
+    .slider-page-4{
+      margin-left: -300%;
+    }
+    .slider-page-5{
+      margin-left: -400%;
+    }
+  </style>
+</head>
+<body>
+  <!--slider-container : 슬라이더의 크기를 결정-->
+  <div class="slider-container">
+    <div class="slider-img">
+      <div class="box">
+        <img src="img\반도체레이저.avif" alt="">
+      </div>
+      <div class="box">
+        <img src="img\별이 빛나는 하늘.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="img\스텔스기.avif" alt="">
+      </div>
+      <div class="box">
+        <img src="img\어스름_다리_요새.webp" alt="">
+      </div>
+      <div class="box">
+        <img src="img\terra of 새벽.webp" alt="">
+      </div>
+    </div>
+  </div>
+  <button id="slide-btn-1" data-slide="1">1</button>
+  <button id="slide-btn-2" data-slide="2">2</button>
+  <button id="slide-btn-3" data-slide="3">3</button>
+  <button id="slide-btn-4" data-slide="4">4</button>
+  <button id="slide-btn-5" data-slide="5">5</button>
+  <br><br>
+  <button id="togle-auto-slide">스크롤 멈춤</button>
+
+  <script>
+    /*const slideButtons = document.querySelectorAll(".slide-btn");
+
+    slideButtons.forEach(button => {
+      button.addEventListener("click", function() {
+        const slideNumber = this.getAttribute("data-slide");
+        const sliderImg = document.querySelector(".slider-img");
+        
+        for (let i = 1; i <= 5; i++) {
+          sliderImg.classList.remove(`slider-page-${i}`);
+        }
+        
+        sliderImg.classList.add(`slider-page-${slideNumber}`);
+      });
+    });*/
+    for (let i=1;i<=5;i++){
+      document.getElementById(`slide-btn-${i}`).addEventListener("click",function(){
+
+        document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-3","slider-page-4","slider-page-5")
+        document.querySelector(".slider-img").classList.add(`slider-page-${i}`);
+      })
+    }
+    var autoSlideScroll=true;
+
+    var curSlide=0;
+    //타이머를 통해 자동 가로 스크린
+    //내가 준 시간 주기로 함수를 반복함
+    function 자동스크롤시작(){
+      return setInterval(function(){
+        //슬라이드가 5개 => 0,1,2,3,4안에서 쓰기
+      curSlide=(curSlide+1)%5;//0~4까지만 넣게 됨
+      //alert("asdfg")
+      document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-3","slider-page-4","slider-page-5")
+      document.querySelector(".slider-img").classList.add(`slider-page-${curSlide+1}`)
+        
+      },3000)
+    }
+    var 타이머저장공간 = 자동스크롤시작()
+    //setInterval(function(){
+      //슬라이드가 5개 => 0,1,2,3,4안에서 쓰기
+      //curSlide=(curSlide+1)%5;//0~4까지만 넣게 됨
+      //alert("asdfg")
+      //document.querySelector(".slider-img").classList.remove("slider-page-1","slider-page-2","slider-page-3","slider-page-4","slider-page-5")
+      //document.querySelector(".slider-img").classList.add(`slider-page-${curSlider+1}`)
+    //},3000)//3000ms, 3sec
+    /*
+    */
+   // 기존에 있는 클래스 이름 slider-page를 모두 없애고
+   // curSlider에 있는 값으로 클래스 이름을 더한다.
+   document.getElementById("togle-auto-slide").addEventListener('click',function(){
+    if (autoSlideScroll === true){
+      clearInterval(타이머저장공간)
+      document.getElementById('togle-auto-slide').innerHTML="스크롤 시작"
+      autoSlideScroll =false
+    }
+    else{
+      //autoSlideScroll이 true가 아니면
+      //타이머 시작
+      //버튼 이름 바꿈
+      //상태변수 true로 바꾸기
+      타이머저장공간 =자동스크롤시작()
+      document.getElementById('togle-auto-slide').innerHTML="스크롤 멈춤";
+      autoSlideScroll=true
+    }
+   })
+  </script>
+</body>
+</html>

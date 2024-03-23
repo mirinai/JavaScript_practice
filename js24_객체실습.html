@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체2</title>
+  <style>
+    .product-container{
+      display: flex;
+      width: 600px;
+      flex-wrap: wrap;
+
+ 
+
+    }
+    .product{
+      border: 1px solid blue;
+      width: 33%;
+
+    
+
+
+    }
+    .product-content{
+      padding: 15px;
+    }
+    .product img{
+      width: 200px;
+      height: 200px;
+      display: block;
+      background: lightcyan;
+    }
+    .product button{
+      padding:10px 25px;
+      background-color: aquamarine;
+      border: none;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-container">
+    <div class="product">
+      <img src="#" alt="...">
+      <div class="product-content">
+        <h3>상품명</h3>
+        <p>값 : 0000원</p>
+        <button>사기</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="#" alt="...">
+      <div class="product-content">
+        <h3>상품명</h3>
+        <p>값 : 0000원</p>
+        <button>사기</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="#" alt="...">
+      <div class="product-content">
+        <h3>상품명</h3>
+        <p>값 : 0000원</p>
+        <button>사기</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="#" alt="...">
+      <div class="product-content">
+        <h3>상품명</h3>
+        <p>값 : 0000원</p>
+        <button>사기</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    var info_goods = [
+      {'상품이름':"아메리카노", "값":3000},//0
+      {'상품이름':"카페라떼", "값":4000},//1
+      {'상품이름':"밀크티", '값':4500},//2
+      {'상품이름':"코코넛 밀크티", '값':4500}//3
+    ]
+    var nums_goods = document.querySelectorAll('.product').length;
+    for (let i=0;i<nums_goods;i++){
+      document.querySelectorAll('.product-content h3')[i].innerHTML=info_goods[i]['상품이름'];
+      document.querySelectorAll('.product-content p')[i].innerHTML='값 : '+info_goods[i]['값']+'원';
+    
+    }
+  </script>
+</body>
+</html>
