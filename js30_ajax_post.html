@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax Post 모형</title>
+</head>
+<body>
+  <script>
+    //https://httpbin.org/post
+    //POST 요청 : 복잡함,,, 내가 보내는 정보를 어느정도 보호받을 수 있음
+    fetch('https://httpbin.org/post',{
+      //여러 정보들을 여기에 입력
+      method:'POST',//POST요청으로 보냄
+      headers:{
+        "Content-Type":"accept: application/json",
+        //'token':'dsafsgsdagfasdgads980909000'
+
+      },
+      body:JSON.stringify({
+        //JSON.stringify : 객체 또는 배열을 JSON 문자열 형태로 바꿔준다.
+        //'id':"myid@naver.com",
+        //'pw':'mypassword',
+        //'datetime':'2024-03-24 10:43:33'
+
+      }),
+
+    })
+  .then(res => res.json())//응답을 받아서 json꼴로 리턴함
+  .then(data =>{
+    console.log(data)
+    console.log(data['url'])
+    console.log(data['origin'])
+  })
+  .catch(err => console.error("error 일어남",err))
+  </script>
+
+
+</body>
+</html>

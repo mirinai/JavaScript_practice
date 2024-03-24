@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+  <style>
+    .display-none{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <select class="select-tag">
+      <option>커피</option>
+      <option>주스</option>
+      <option>차</option>
+    </select>
+    <select class="select-tag display-none">
+      <option>1잔</option>
+      <option>2잔</option>
+      <option>3잔</option>
+    </select>
+  </form>
+  <script>
+    //하나의 클래스이름을 여러군데 쓰면
+    //quertySelector()로 배열 찾기
+    document.querySelectorAll('.select-tag')[0].addEventListener('click',function(e){
+      //이벤트 준 타겟 : document/querySelector(`.select-tag`)[0]
+      // 두번째 있는 select-tag의 display-none클래스 없애기
+      if (e.target.value=== '주스'){
+        document.querySelectorAll('.select-tag')[1].classList.remove('display-none')
+      }
+      else{
+        //alert(e.target.value)
+        // 두번째 있는 select-tag의 display-none클래스 넣기
+        document.querySelectorAll('.select-tag')[1].classList.add('display-none')
+      }});
+      var variable1 = function(){}
+      variable1 = () => {}
+
+      var variable2
+      variable2 = function(parameter){}
+      variable2 = (parameter) => {}
+
+
+      var variable3 = (a, b) => {
+      let sum = a + b;
+      return sum;
+    };
+      var variable4= (a,b) => {
+        let sum=a+b;
+        return sum;
+      }
+
+
+  </script>
+</body>
+</html>

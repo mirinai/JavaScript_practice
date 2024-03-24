@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비동기로 Get 불러오기</title>
+</head>
+<style>
+  
+</style>
+<body>
+  <div id="box"></div>
+  <script>
+    // https://httpbin.org/get
+
+    // 웹이 다른 모바일이나 프로그램과 통신할 때는
+    // HTTP통신 (웹통신, 웹에다가 요청해 그럼 결과 줄게)
+    // Get : 웹에 요청하는데 보안이 낮음 그런데 쉬움 ==> 정보 제공을 요청할 때
+    // Post : 웹에 요청을 하는데 보안이 높음, 그런데 어려움 ==> 정보 저장을 요청할 때
+
+    // HTTP 통신을 하려면 상대방 웹의 주소를 알아야 함
+    // Ajax : 기존에 띄워진 페이지는 냅두고 새로 제공되는 정보만 갱신하고 싶다(새로고침 없이)
+    // 비동기 (원래하는 작업은 그대로 두고 작업은 다른 곳에 맡김, 동시처리)
+    fetch("https://httpbin.org/get") 
+    .then(res => res.text())//응답받으면 텍스트로 리턴해라
+    .then(data =>{
+      console.log(data)
+      // 받은 data를 box에 p태그로 넣기 ${}
+      let variable6 = `<p>${data}</p>`;
+      document.getElementById('box').insertAdjacentHTML('beforeend', variable6)
+    })//
+     //예외처리 : 일반적이지 않은 상황에 따른 대처
+    //(인터넷 안됨, 컴퓨터가 너무 과부하상태 등등....)
+    .catch(err => {
+      //위에서 예외상황이 일어나면 이리로 들러와
+      console.error("에러 일어남",err)//에러를 기록함 
+    });
+
+    fetch("https://httpbin.org/get") 
+    .then(res => res.json())//응답받으면 json문자열로 리턴해라
+    .then(data =>{
+      console.log(data)
+      // 받은 data를 box에 p태그로 넣기 ${}
+      let variable6 = `<p>${data['url']}</p>`;
+      document.getElementById('box').insertAdjacentHTML('beforeend', variable6)
+    })//
+     //예외처리 : 일반적이지 않은 상황에 따른 대처
+    //(인터넷 안됨, 컴퓨터가 너무 과부하상태 등등....)
+    .catch(err => {
+      //위에서 예외상황이 일어나면 이리로 들러와
+      console.error("에러 일어남",err)//에러를 기록함
+    });
+  </script>
+</body>
+</html>

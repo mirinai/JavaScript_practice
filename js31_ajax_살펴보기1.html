@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax_살펴보기1</title>
+  <style>
+    .asking{
+      display: flex;
+
+      justify-content: center;
+
+    }
+    .asking button{
+      margin: 10px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="asking">
+    <button id="get-btn">asking get</button>
+    <button id="post-btn">asking post</button>
+    <button id="clear-btn">지우기</button>
+  </div>
+  
+  <div id="box"></div>
+  <script>
+    //get-btn을 누르면 get요청을 한 결과를 html에 나타내기
+    //post-btn을 누르면 post요청을 한 결과를 html에 나타내기
+    //clear-btn을 누르면 innerHTML = ''로 이력 삭제
+    document.getElementById("get-btn").addEventListener(("click"),() => {
+      fetch("https://httpbin.org/get")
+      .then(res => res.json())
+      .then(data => {
+        //console.log(typeof(data))
+        let get_var = `
+        <p>${JSON.stringify(data)}</p>
+        <h1>${data['url']}</h1>
+        <hr>
+        `
+        document.getElementById("box").insertAdjacentHTML('beforeend',get_var);
+      })
+      .catch(err =>{
+        console.log("error detected at getting", err)
+      })
+    });
+
+    document.getElementById("post-btn").addEventListener(("click"),() => {
+      fetch("https://httpbin.org/post",{
+        method:"POST",
+        Headers:{
+          "Content-Type":"accept: application/json"
+        },
+        body:JSON.stringify(
+          //'':''
+        )
+      })
+      .then(res => res.json())
+      .then(data =>{
+        var res_val = `
+        <p>${JSON.stringify(data)}</p>
+        <h1>${data['url']}</h1>
+        <hr>
+        `
+        document.getElementById("box").insertAdjacentHTML('beforeend',res_val);
+        //console.log(res_val)
+      })
+      .catch(err =>{
+        console.log("error detected at posting", err)
+      })
+    })
+
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      document.getElementById('box').innerHTML = '';
+
+    })
+   
+
+  </script>
+</body>
+</html>

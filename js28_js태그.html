@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트로 html태그 만들기</title>
+  <style>
+    .font-yellow{
+      color:yellowgreen;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="add-content">글 쓰기</button>
+  <script>
+    //자바스크립트로 태그 추가 방법
+    //요소만들기라는 함수로 태그를 만들기
+    var p_tag = document.createElement('p')//p태그를 만들 준비 함
+    p_tag.innerHTML="hello";
+    document.getElementById('box').appendChild(p_tag)
+
+    //자바스크립트로 태그 추가 방법2
+    //변수에 HTML태그처럼 넣어버리기
+    var variable5=0;
+    var box_coding=`
+      <p class="font-yellow">자바스크립트로 태그 넣기${variable5}</p>
+    `;
+    //추가=> insertAdjacentHTML, 새로 쓸거면 innerHTML
+    document.getElementById("box").insertAdjacentHTML("beforeend",box_coding);
+    document.getElementById("box").insertAdjacentHTML("beforeend",box_coding);
+    document.getElementById("box").insertAdjacentHTML("beforeend",box_coding);
+    //document.getElementById("box").innerHTML = box_coding
+
+    //버튼이 누를때마다 <h3>태그가 추가됨
+    let h3_tag='<h3>semi conductor</p>';
+    document.getElementById('add-content').addEventListener(("click"),function(){
+      document.getElementById('box').insertAdjacentHTML('beforeend',h3_tag);
+    });
+    
+   
+  </script>
+</body>
+</html>
