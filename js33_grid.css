@@ -1,0 +1,90 @@
+body{
+  margin: 0;
+}
+div, input, textarea{
+  box-sizing: border-box;
+}
+.grid-container{
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-areas: 
+  "위쪽 위쪽 위쪽"
+  "왼쪽 안쪽 안쪽"
+  "왼쪽 안쪽 안쪽"
+  ;
+}
+.grid-container div{
+  border: 2px solid yellowgreen;
+  
+}
+.first{
+  grid-area: 위쪽;
+}
+.second{
+  grid-area: 왼쪽;
+}
+.third{
+  grid-area: 안쪽;
+}
+
+
+.grid-layout{
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-areas: 
+  "큰박스 큰박스 작은박스1"
+  "큰박스 큰박스 작은박스2"
+  "작은박스3 작은박스4 작은박스5"
+  ;
+
+}
+.grid-layout img{
+  width: 100%;
+  height: 100%;
+
+}
+.one{
+  grid-area: 큰박스;
+}
+.two{
+  grid-area: 작은박스1;
+}
+.three{
+  grid-area: 작은박스2;
+}
+.four{
+  grid-area: 작은박스3;
+}
+.five{
+  grid-area: 작은박스4;
+}
+.six{
+  grid-area: 작은박스5;
+}
+
+@media screen and (max-width: 768px){
+  .grid-layout{
+    width: 60px;
+    height: 60px;
+    grid-template-areas:
+    "큰박스"
+    "작은박스1"
+    "작은박스2"
+    "작은박스3"
+    "작은박스4"
+    "작은박스5"
+
+    ;
+  
+  }
+  .grid-container{
+  
+    grid-template-areas: 
+    "위쪽"
+    "왼쪽"
+    "안쪽"
+    ;
+  }
+}
