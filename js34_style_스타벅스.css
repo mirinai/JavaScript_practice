@@ -1,78 +1,228 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스타벅스 코리아</title>
-  <link href="js34_style_스타벅스.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-  <!--div ==> nav-->
-  <nav>
-    <div class="top-nav">
-      <div class="top-nav-inner">
-        <img src="img\starbucks_logo.PNG" width="85px" height="85px">
-        <div class="right-nav">
-          <div class="first-nav">
-            <ul>
-              <li><a href="#">Sign In</a></li>
-              <li><a href="#">My Starbucks</a></li>
-              <li><a href="#">Customer Service & Ideas</a></li>
-              <li class="no-folder"><a href="#">Find a Store</a></li>
-              <li class="no-folder"><button>Q</button></li>
-            </ul>
-          </div>
-          <div class="second-nav">
-            <ul>
-              <li><a href="#">COFFEE</a></li>
-              <li><a href="#">MENU</a></li>
-              <li><a href="#">STORE</a></li>
-              <li><a href="#">RESPONSIBILITY</a></li>
-              <li><a href="#">STARBUCKS REWARDS</a></li>
-              <li><a href="#">CORPORATE SALES</a></li>
-              <li><a href="#">WHAT'S NEW</a></li>
-            </ul>
+/*
+폰트
+*/
+@font-face {
+  font-family: '나눔';
+  src: url(./NanumSquareR.woff2);
+}
+body{
+  font-family: "나눔";
+  margin: 0;
+  background: black;
+  
+}
+div, input, textarea{
+  box-sizing: border-box;
+}
+.top-nav{
 
-          </div>
+  background-color: rgb(246,245,239);
+  height: 120px;
+}
+.dump{
+  height: 120px;
 
-      </div>
-        
+}
+nav{
+  position: fixed;
+  width: 100%;
+  z-index: 8;
+}
+.ads{
+  position: fixed; 
+  background-image: url(./img/item1.PNG);
+  z-index: 5;
+  top:30%;
+  left: 80%;
+  width:135px;
+  height: 95px;
+}
+.first-nav{
+  display: flex;
+  justify-content: flex-end;
 
-      <div></div>
-    </div>
-  </div>
-    <div class="bottom-nav">
-      <div class="bottom-nav-inner">
-        <div>
-          <h3></h3>
-          <ul>
-            <li></li>
-          </ul>
-        </div>
-        
+}
+.top-nav-inner{
+  width: 1100px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;/*양쪽 정렬*/
+  align-items: center;/*가운데 정렬*/
+}
+.first-nav li{
 
-      </div>
+}
 
-    </div>
-  </nav>
-  <div class="dump"></div>
-  <div class="ads"></div>
-  <div class="section-1">
-    <img src="img\스타벅스_제목2.PNG" alt="" class="img-text">
-    <button>자세히 보기</button>
-    <img src="img_2/item3-m.png" alt="" class="section-1-img1">
-    <img src="img_2/item4-m.png" alt="" class="section-1-img2">
-    <img src="img_2item5-m.png" alt="" class="section-1-img3">
-    
-    
-  </div>
-  <div class="section-2"></div>
-  <div class="section-3"></div>
-  <div class="section-4"></div>
-  <div class="section-5"></div>
-  <div class="section-6"></div>
-  <div class="section-7"></div>
-  <div class="section-8"></div>
-</body>
-</html>
+.top-nav a{
+  color:black;
+  text-decoration: none;
+  font-size: 12px;
+  padding-right:15px;
+  padding-left: 15px;
+  border-right: 1px solid lightgrey;
+}
+.top-nav li{
+  display: inline-block;
+  
+  border-right: 1px solid lightgrey;
+}
+.no-folder{
+  border-right: none;
+  
+}
+.second-nav{
+  display: flex;
+  justify-content: flex-end;
+}
+.second-nav a{
+  color:black;
+  text-decoration: none;
+  font-size: 15px;
+  padding-right:15px;
+  padding-left: 15px;
+  padding-bottom: 21px;
+}
+.second-nav li{
+  display: inline-block;
+  margin:0;
+  
+}
+.second-nav a{
+  color: black;
+  text-decoration: none;
+
+}
+.second-nav a:hover{
+  background-color: black;
+  color: rgb(64, 122, 64);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.bottom-nav{
+  margin-top: 614px;
+  background-color: rgb(44,42,41);
+  width: 100%;
+  transition: all 0.5s;
+  /*height: 0;
+  visibility: none;*/
+}
+.bottom-nav-inner{
+  width: 1100px;
+  margin: auto;
+  color: white;
+  display: flex;
+  height: 0;
+  visibility: none;
+
+}
+.bottom-nav-inner div{
+  width:200px;
+}
+.bottom-nav ul{
+  margin: 0;
+  padding: 0;
+}
+.bottom-nav li{
+  list-style: none;
+  font-size: small;
+}
+.section-1{
+  height: 100%;
+  height: 32vw;
+  background-image: url(./img_2/section1.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.section-2{
+  height: 100%;
+  height: 22vw;
+  background-image: url(./img_2/section4.png);
+  background-position: center;
+  background-size: 100% auto;
+}
+.section-3{
+  height: 100%;
+  height: 24vw;
+  background-image: url(./img_2/section5.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.section-4{
+  height: 100%;
+  height: 28vw;
+  background-image: url(./img_2/section6.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.section-5{
+  height: 100%;
+  height: 32vw;
+  background-image: url(./img_2/section7.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.section-6{
+  height: 100%;
+  height: 22vw;
+  background-image: url(./img_2/section8.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.section-7{
+  height: 100%;
+  height: 22vw;
+  background-image: url(./img_2/section9.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.section-8{
+  height: 100%;
+  height: 26vw;
+  background-image: url(./img/background1.PNG);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+
+.section-1 .img-text{
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  top:30%;
+  left:12%
+}
+.section-1 .section-1-img1{
+  position: absolute;
+  left: 55%;
+  top:20%;
+  background: transparent;
+
+  padding:5px 15px;
+  border-radius: 5px;
+}
+.section-1 .section-1-img2{
+  position: absolute;
+  left: 70%;
+  top:50%;
+  background: transparent;
+
+  padding:5px 15px;
+  border-radius: 5px;
+}
+.section-1 .section-1-img3{
+  position: absolute;
+  left: 80%;
+  top:20%;
+  background: transparent;
+
+  padding:5px 15px;
+  border-radius: 5px;
+}
