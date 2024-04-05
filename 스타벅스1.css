@@ -1,0 +1,257 @@
+/*
+폰트
+*/
+@font-face {
+    font-family: '나눔';
+    src: url(./NanumSquareR.woff2);
+  }
+  body{
+    font-family: "나눔";
+    margin: 0;
+    background: black;
+    
+  }
+  div, input, textarea{
+    box-sizing: border-box;
+  }
+  .top-nav{
+  
+    background-color: rgb(246,245,239);
+
+  }
+
+  nav{
+    position: fixed;
+    width: 100%;
+    z-index: 8;
+  }
+  .ads{
+    position: fixed; 
+    background-image: url(./img/item1.png);
+    z-index: 5;
+    top:30%;
+    left: 80%;
+    width:135px;
+    height: 95px;
+  }
+  .top-nav-inner{
+    width: 1100px;
+    height: 120px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;/*양쪽 정렬*/
+    align-items: center;/*가운데 정렬*/
+  }
+
+
+  .first-nav li{
+    display: inline-block;
+    padding: 0 15px;
+    border-right: 1px solid lightgray;
+  
+  }
+  .no-border{
+    border-right: none!important;
+    
+  }
+  .dump{
+    height:120px;
+  }
+  .first-nav a{
+    color:black;
+    text-decoration: none;
+    font-size: small;
+    
+  }
+  .first-nav a:hover{
+    text-decoration: underline;
+  }
+
+
+  .second-nav li{
+    display: inline-block;
+    
+  }
+  .second-nav a{
+    padding: 10px 16px 22px 16px;      /* 위에서부터 시계방향으로 */
+  }
+  .first-nav{
+    display:flex;
+    justify-content: flex-end;
+  }
+  .second-nav{
+    display:flex;
+    justify-content: flex-end;
+  }
+  
+  .second-nav a{
+    color:black;
+    text-decoration: none;
+  }
+  .second-nav a:hover{
+  
+  
+  
+  }
+  .second-nav-show{
+    color:green !important;
+    text-decoration: underline !important;
+    background:rgb(44,42,41)
+  }
+  
+  .down-nav{
+    background:rgb(44,42,41);
+    width:100%;
+    transition: max-height 0.5s;
+    max-height:0;
+    visibility: hidden;
+  }
+  .down-nav-show{
+    max-height:500px;
+    visibility: visible;
+  }
+  
+  .down-nav-inner{
+    width:1100px;
+    margin:auto;
+    color: white;
+    display:flex;
+    padding:15px;
+  }
+  .down-nav ul{
+    margin:0;
+    padding:0;
+  }
+  .down-nav li{
+    list-style-type: none;
+    font-size:small;
+  }
+  .section-1{
+    height: 100%;
+    height: 32vw;
+    background-image: url(./img/section1.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  .section-1 .img-text{
+    position:absolute;
+    left:20%;
+    top:20%;
+    width:20vw;    /* 가로 화면 크기에 비례 */
+  }
+  .section-1 .section-1-btn:hover{
+    color:white;
+    background:rgb(19,54,45);
+    text-decoration: underline;
+    cursor:pointer;
+  }
+  .section-1 .product1{
+    position:absolute;
+    left:45%;
+    top:25%;
+    width:22vw;
+  }
+  .section-1 .product2{
+    position:absolute;
+    left:65%;
+    top:12%;
+    width:15vw;
+  }
+  .section-1 .product3{
+    position:absolute;
+    left:78%;
+    top:19%;
+    width:15vw;
+  }
+  .section-2{
+    display:flex;
+  }
+  .section-2 .back-black{
+    background:black;
+    color:white;
+    display: flex;
+    width:50%;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 25px;
+  }
+  .section-2 .back-black li{
+    list-style-type: none;
+  }
+  .section-2 .back-white{
+    background:white;
+    color:black;
+    display: flex;
+    width:50%;
+    justify-content: center;
+    align-items: center;
+  }
+  .section-2 .back-black-icon{
+    font-size:larger;
+    border:1px solid white;
+    padding:4px 4px 1px 4px;
+    border-radius: 30px;
+  }
+  .section-2 .back-white-icon{
+    margin-left: 100px;
+    font-size:larger;
+    padding:4px 4px 1px 4px;
+    border:1px solid black;
+    border-radius: 30px;
+  }
+  .display-none{
+    display:none;
+  }
+  .section-3{
+    height: 100%;
+    height: 24vw;
+    background-image: url(./img_2/section4.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .section-4{
+    height: 100%;
+    height: 28vw;
+    background-image: url(./img_2/section5.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .section-5{
+    height: 100%;
+    height: 32vw;
+    background-image: url(./img_2/section6.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .section-6{
+    height: 100%;
+    height: 22vw;
+    background-image: url(./img/section7.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .section-7{
+    height: 100%;
+    height: 22vw;
+    background-image: url(./img/section8.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .section-8{
+    height: 100%;
+    height: 26vw;
+    background-image: url(./img/section9.png);
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  
+  
+  
+ 
