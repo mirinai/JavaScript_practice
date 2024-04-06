@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>? 와 ??</title>
+</head>
+<body>
+  <script>
+    // ? : 객체의 속성 또는 함수를 쓸 때 해당 값이 없으면
+    // 예외처리를 해줌(방어처리)
+    // 웹이 다운되지 않게 예외처리를 해줌(방어처리)
+    // 값이 들어있는 지 확신이 없을 때
+    var obj={}
+    console.log(obj.name?.lastName)//에러 생김
+    console.log("hi")//실행안됨(웹 다운)
+
+
+    // ?? : 널 병합연산자, 쓰려는 값이 비어있으면 오른쪽 값으로 대체
+    let name; // 값을 안 넣음(또는 값이 아직 도착안함)
+    
+    let result = name ?? "대체값";
+    console.log(name); // 이 코드는 undefined를 출력합니다.
+    console.log(result); // 이 코드는 "대체값"을 출력합니다
+    
+  
+
+    
+    
+  
+
+
+
+  </script>
+</body>
+</html>

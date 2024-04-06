@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="getImg">이미지 가져오기</button>
+  <img id="setImg" src="" alt="...">
+  
+  <script>
+    document.getElementById('getImg').addEventListener("click",function()
+    {
+      //Math.random() : 0~ 아무거나 고름
+      var addressOfImg="https://picsum.photos/500?r="+Math.random()
+
+      //이미지가 다 로딩되기 전까지 기다릴 것이니까  Promise
+      var loader = new Promise(function(resolve,reject){
+        var image = document.getElementById('setImg').src=addressOfImg;
+        // 이미지가 잘 로딩되었나 검사
+        document.getElementById("setImg").onload=function(){
+          resolve(); //성공
+
+        }
+        document.getElementById("setImg").onerror=function(){
+          reject(); //실패
+
+        }
+      })
+      //Promise를 쓰기(.then)
+      // 실패를 대비해서 (.catch)
+      loader.then(function(){
+          alert("이미지 로딩 성공")
+        }).then(function(){
+          console.log("이미지 로딩 실패")
+        }).catch(function(){
+          console.log("이미지 로딩 실패")
+        })
+        
+    })
+        
+    
+  </script>
+</body>
+</html>

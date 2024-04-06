@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 상속 : 물려 줌(class => class)
+    // 클래스가 가지고 있는 것 : 함수와 변수 ==> 함수와 변수를 물려준다.
+    // 왜 있냐?
+    // 같은 코드 2번 쓰면 2번 고침
+    // 같은 코드 5번 쓰면 5번 고쳐야 함
+    
+    class Parents{
+      constructor(name,age){ // ==> new 할때 ()에 채워줘야 함
+        this.species="homo sapiens";
+        this.name=name;//매개변수로 받은 이름을 클래스 변수에 저장
+        this.age=age;//매개변수로 받은 나이를 클래스 변수에 저장
+        // () 또는 {}에서 만든 변수는 탈출하면 없어짐 =>this. 에다가 백업
+      }
+      cooking(){
+        console.log(`${this.name}is cooking so much`)
+
+
+      }
+      walking_with_two_feet(){
+        console.log("walk with two feet")
+      }
+    }
+    //하나하나 붙여넣지 말고 물려주기 ==> 상속(컴퓨터가 카피해서 붙이기) extends
+    // 상속을 하는 이유 : 일부만 다르게 하려고 (고치기 또는 넣기)
+    class Fillia extends Parents{
+
+      // extends 를 썼으니까 보이지는 않지만 위의 코드가 복붙되었다고 생각
+
+      // 근데, 상속을 한 이유는 좀 더 넣거나 고치기 위해서 만듦
+
+      // 추가는 그냥 만들면 됨
+      constructor(name,age){ // ==> new 할때 ()에 채워줘야 함
+        //부모의 것을 가져오기
+        super(name,age) //부모의 것을 씀
+
+        this.name=name;//매개변수로 받은 이름을 클래스 변수에 저장
+        this.age=age;//매개변수로 받은 나이를 클래스 변수에 저장
+        // () 또는 {}에서 만든 변수는 탈출하면 없어짐 =>this. 에다가 백업
+      }
+      gettingMoney(){
+        console.log("세뱃돈을 내놔라 아빠쎄이")
+      }
+      //수정(오버라이딩) : 함수의 이름과 매개변수를 그대로 따라하고 내용만 바꿈
+      //cooking을 so much ==> too much
+      cooking(){
+        super().cooking()  //부모의 cooking을 쓰기
+        console.log(`${this.name}is cooking too much`)
+      }
+    }
+    //쓸 때는 변수에 new해서 찍어내 씀 (객체화)
+    var father = new Parents("Edward",35);
+    var daughter = new Fillia("Eva",14);
+    father.cooking()
+    daughter.cooking()
+  </script>
+</body>
+</html>

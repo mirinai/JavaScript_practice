@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //class : 클래스 (묶음)
+    // 주제에 맞게 변수와 함수를 묶는다.
+
+    //사람의 변수와 함수만 묶어서 놔둠
+    class Person
+    {
+      //클래스는 주제에 맞게 함수와 변수를 보관하는 묶음
+      //사람의 변수와 함수만
+
+      //클래스의 프로토타입에 넣음
+      sayHello(){
+        console.log("hi")
+      }
+    }
+    class monkey{
+      //원숭이의 변수와 함수만
+      sayHello(){
+        console.log('우끼끼')
+      }
+    }
+    class 강아지
+    {
+      //강아지그룹
+      // constructor : 클래스의 생성자 ==> 클래스 처음 만들 때 쓰이는 함수
+      constructor(이름, 나이){
+        //new해서 찍어내는 순간 돌아가는 함수(생성자)
+        // 객체찍어내는 constructor와 다른 문법(클래스 안에서만 씀)
+        this.개나이=나이;// 반은 변수를 this에 넣으면 영구보관 
+        this.개이름=이름;
+        
+      }
+      sayHello(){
+        console.log("멍멍");
+      }
+    }
+    
+    //사람의 유전자(클래스)
+    var armin = new Person()
+    var mikasa = new Person()
+    var eren = new Person()
+    
+    //원숭이의 유전자(클래스)
+    var monkey1 = new Person()
+    var monkey2 = new Person()
+    var monkey3 = new Person()
+
+    armin.sayHello()
+    mikasa.sayHello()
+    monkey1.sayHello()
+    //new로 찍어내는 순간에 이름과 나이를 정해주고 싶으면
+    // () 쓰기 ==> new하는 순간에 정할 수 있음
+    //constructor의 ()에 미리 이름과 나이를 받을 수 있게 설정
+    // new할때 ()에 넣어서 정함
+    var 내_개= new 강아지("clovis",3)
+    var 이웃집_개= new 강아지("jadwiga",6)
+
+    이웃집_개.sayHello()
+    console.log(내_개.개이름)
+    console.log(이웃집_개.개이름)
+  </script>
+</body>
+</html>

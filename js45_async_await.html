@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async_await</title>
+</head>
+<body>
+  <button id="text-load">텍스트 파일 읽기</button>
+  <div><p id="text2"></p></div>
+  <button id="site-load">이미지 열기</button>
+
+  <script>
+    // 함수 앞에 async를 적어주면 Promise처럼 쓸 수 있음
+    async function func_name(){
+      console.log("using func.")
+    }
+    //프로퍼티 변수 이름.then()~
+    // 함수이름().then()
+    func_name().then(function(){
+      console.log("after using func.")
+    })
+
+    // async의 결과를 then에 전달하고 싶으면 return
+    async function func2(){
+      var sum=1+1;
+      return sum;//2
+      return Promise.reject()//실패로 전달(기본은 성공)
+    }
+    // async의 결과 값을 쓰고 싶으면
+    func2().then(function(valueOfReturn){
+      console.log(valueOfReturn)
+      return "또 리턴";
+    }).then(function(또리턴){
+      console.log(또리턴)
+    })
+    // Promise 긴 작업을 기다림, async 긴 작업 기다림
+    // await : async 함수 안에서 긴 작업을 기다리게 하고 싶을 때
+    document.getElementById(`text-load`).addEventListener("click",reading_file)
+    async function reading_file(){
+      // 비동기(주 작업에 영향이 안가게 다른 작업)
+      // await 해당 작업이 끝날때까지 기다림(.then)
+      // fetch 작업이 끝날 때까지 기다림(다 읽을 때까지)
+      try{
+      let result=await fetch("텍스트파일.txt")
+      if(!result.ok){
+        //! ==> true->false,거꾸로도 마찬가지
+        //밑에 있는 부분을 더는 실행안하고 catch로 보냄
+        throw new Error('')
+      }
+      // 결과값을 텍스트로 모다 바꿀때까지 기다린다 await(async 안에서 쓸 수 있음)
+      let 파일내용 = await result.text()
+      console.log(파일내용)
+      document.getElementById(`text2`).innerHTML=파일내용;
+    }
+    catch{
+      console.log("앗 실패")//try가 실패했을 때
+    }
+  }
+  // 위에 버튼 하나 만들고
+  // 버튼을 누르면 텍스트 파일 가져오는데
+  
+  //async - await를 써서 가져오기 
+  document.getElementById(`site-load`).addEventListener("click",reading_image)
+  async function reading_image(){
+    //async으로 만들어서 안에서 await로 기다리게 할 수 있음
+    //사이트가 응답할 때까지 await(대기)
+    let res=await fetch("https://httpbin.org/get")
+    if(res.ok){
+      //변환하는 데 양이 많아서 시간이 걸릴 수 있으므로 await
+      //fetch : 비동기로 작업을 다른 것과 같이해서(예전에 유행했던 제이쿼리에서 ajax로 제공)
+      let data = await res.text()
+      document.getElementById(`text2`).innerHTML=data
+    }
+    /*try{
+      let response=await fetch("")
+      if (!result.ok){
+        throw new Error("Network result Not OK");
+      }
+      let 파일내용 = await result.
+    }
+    catch{
+
+    }*/
+    //async으로 만들어서 안에서 await로 기다리게 할 수 있음
+    //사이트가 응답할 때까지 await(대기)
+  }
+  
+  </script>
+</body>
+</html>

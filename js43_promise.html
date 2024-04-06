@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+<body>
+  <script>
+    //Promise : 얘 끝나면 시작해
+    // then : 앞에 것 끝나면 실행
+    // 기다리는 까닭은 앞의 함수가 오래걸리거나 실패할 수도 있기 때문에
+
+    var promise = new Promise(function(success,failure){
+      var long_running_or_potentially_failing_operation=1+1;//길어질 수 있는 다른 작업을 프로마이즈에 넣는다
+      success()
+    })
+    //Promise는 순차적으로 실행 (fetch() : 밑의 코드도 동시에 실행)
+    // Promise then을 통해 씀
+    promise.then(function(){
+      console.log("success");//promise가 끝나야 실행되는 것
+    }).then(function(){
+      console.log("success2") //위의 then이 끝나야 실행하는 것
+    })
+  </script>
+</body>
+</html>

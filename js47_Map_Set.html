@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자료구조</title>
+</head>
+<body>
+  <script>
+    //Map, Set : 자바에서 쓰이던 자료구조를 가져온 것
+    //배열 만들기
+    var 배열 = [1,2,3]
+    var 배열2 = new Array()
+    var 오브젝트 = {'키':"값"}
+    var 오브젝트2 = new Object()
+    
+    //Map : 오브젝트와 비슷함(키와 값)
+    //다른 것 : 키값의 데이터타입이 자유롭다(오브젝트는 string)
+    var map = new Map([
+      [4,"넷"],
+      [5,'다섯']
+    ])
+    //Map에 넣으려면 set()
+    map.set(1,"하나")
+    map.set(2,"둘")
+    map.set(3,"셋") //키가 겹치면 안됨
+    console.log(map)
+    //없애려면 delete()
+    map.delete(2)
+    console.log(map)
+
+
+    //모두 쓰는 반복문
+    map.forEach((값,키)=>{
+      console.log(`${키}==>${값}`)
+    })
+
+      //Set : 배열은 배열인데 겹치는 것을 막는 배열
+    //값을 하나씩 넣을 때, 같은 값이 들어오는 것을 막고자 하면
+    //Set을 씀
+    var 배열3 = [1,2,2,2,2,3]
+    let set= new Set()
+    //
+    //넣을 때는
+    set.add(1)
+    set.add(2)
+    set.add(3)
+    set.add(2)
+    set.add(2)
+    set.add(2)
+    set.add(3)
+    console.log(set) // 같은 값은 무시
+
+    //있는지 검사할때는 has
+    console.log(set.has(4))//false
+    console.log(set.has(3))//true
+
+    //모두 쓰려면 반복문
+    set.forEach((값)=>{
+      console.log(값)
+    })
+  </script>
+  
+</body>
+</html>
