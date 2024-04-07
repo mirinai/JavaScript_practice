@@ -32,11 +32,11 @@ var cat = {
         }
         else if(timer % 36 <12){
             // 0~5
-            ctx.drawImage(catImgg,400,250,180,155,this.x, this.y, this.width, this.height)
+            ctx.drawImage(catImg,400,250,180,155,this.x, this.y, this.width, this.height)
         }
         else if(timer % 36 <18){
             // 0~5
-            ctx.drawImage(catImgg,210,250,180,155,this.x, this.y, this.width, this.height)
+            ctx.drawImage(catImg,210,250,180,155,this.x, this.y, this.width, this.height)
         }
         else if(timer % 36 <24){
             // 0~5
@@ -126,9 +126,11 @@ document.addEventListener("keydown", (e) => {
         }
 
     }
-    //if (e.code === "z") {
-        //startGame(); // 스페이스바를 눌러 게임 시작
-    //}
+    if (e.key === "z" || e.key === "Z") { // 'e.key'를 사용하는 방법
+        //alert("Z 키가 눌렸습니다.");
+        startGame()
+        // 여기에 원하는 로직 추가
+    }
     
 });
 
@@ -153,6 +155,7 @@ function startGame(){
     jump_flag=false;
     jump_timer=0;
     isGameRunning= true;
+    birdList=[]
     perform()
 }
 // perform 함수 호출하여 애니메이션 시작
